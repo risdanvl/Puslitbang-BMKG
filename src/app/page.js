@@ -1,10 +1,10 @@
-import { Header, Navbar } from '@/components';
+import { Components } from '@/components'
 
 export default function Home() {
   return (
-    <main>
-      <Navbar />
-      <Header />
-    </main>
-  );
+    <>
+      <Components.Weather />
+      <Components.Scope />
+    </>
+  )
 }
