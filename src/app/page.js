@@ -5,6 +5,7 @@ export default function Home() {
     <>
       <Components.Weather />
       <Components.Scope />
+      <Components.AirQuality />
     </>
   )
 }
