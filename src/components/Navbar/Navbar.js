@@ -36,7 +36,7 @@ export default function Navbar() {
     >
       <div className='hidden md:flex justify-around'>
         <div className='flex gap-x-4'>
-          {/* <Image src='/images/logo-bmkg.png' className='w-10 h-12' width={60} height={60} alt='logo' /> */}
+          <Image src='/images/logo-bmkg.png' className='w-10 h-12' width={60} height={60} alt='logo' />
           <div className='my-auto text-sm font-bold text-white'>
             <p>Badan Meteorologi</p>
             <p>Klimatologi Geofisika</p>
