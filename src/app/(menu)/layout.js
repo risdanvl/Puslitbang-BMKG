@@ -1,5 +1,5 @@
 import { Poppins } from 'next/font/google'
-import './globals.css'
+import '../globals.css'
 
 import { Components } from '@/components'
 
@@ -17,13 +17,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css"
+        />
+      </head>
       <body className={poppins.className}>
         <Components.Navbar />
-        <Components.Header />
-        <div className="flex">
-          <main className="relative mx-auto max-w-6xl">{children}</main>
-        </div>
-        <Components.Footer2 />
+        <main className="h-screen bg-black pt-24">{children}</main>
       </body>
     </html>
   )
