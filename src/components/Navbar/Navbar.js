@@ -6,12 +6,21 @@ import React, { useEffect, useState } from 'react'
 
 export default function Navbar() {
   const [hasScrolled, setHasScrolled] = useState(false)
+  const [openSubmenu, setOpenSubmenu] = useState('')
 
   const handleScroll = () => {
     if (window.scrollY > 0) {
       setHasScrolled(true)
     } else {
       setHasScrolled(false)
+    }
+  }
+
+  const changeSubMenu = (menu) => {
+    if (openSubmenu === menu) {
+      setOpenSubmenu('')
+    } else {
+      setOpenSubmenu(menu)
     }
   }
 
@@ -28,7 +37,7 @@ export default function Navbar() {
         hasScrolled ? 'transition-all bg-black bg-opacity-70' : 'transition-all'
       }`}
     >
-      <div className="hidden md:flex justify-around">
+      <div className="flex max-w-6xl mx-auto justify-between">
         <div className="flex gap-x-4">
           <Image
             src="/images/logo-bmkg.png"
@@ -49,24 +58,28 @@ export default function Navbar() {
           >
             Beranda
           </Link>
-          <Link
-            href="/meteorologi"
+
+          <button
             className="p-2 hover:underline hover:underline-offset-4"
+            onClick={() => changeSubMenu('meteo')}
           >
             Meteorologi
-          </Link>
-          <Link
-            href="/klimatologi"
+          </button>
+
+          <button
             className="p-2 hover:underline hover:underline-offset-4"
+            onClick={() => changeSubMenu('klimat')}
           >
             Klimatologi
-          </Link>
-          <Link
-            href="/geofisika"
+          </button>
+
+          <button
             className="p-2 hover:underline hover:underline-offset-4"
+            onClick={() => changeSubMenu('geofis')}
           >
             Geofisika
-          </Link>
+          </button>
+
           <Link
             href="/artikel"
             className="p-2 hover:underline hover:underline-offset-4"
@@ -81,6 +94,42 @@ export default function Navbar() {
           </Link>
         </div>
       </div>
+      {openSubmenu == 'klimat' && (
+        <div className="bg-background text-white">
+          <div className="mx-auto max-w-6xl flex">
+            <div className="my-auto">Klimatologi</div>
+            <div className="ml-60 py-4">
+              <p>Klimatologi1</p>
+              <p>Klimatologi2</p>
+              <p>Klimatologi3</p>
+            </div>
+          </div>
+        </div>
+      )}
+      {openSubmenu == 'meteo' && (
+        <div className="bg-background text-white">
+          <div className="mx-auto max-w-6xl flex">
+            <div className="my-auto">Meteorologi</div>
+            <div className="ml-60 py-4">
+              <p>Meteorologi1</p>
+              <p>Meteorologi2</p>
+              <p>Meteorologi3</p>
+            </div>
+          </div>
+        </div>
+      )}
+      {openSubmenu == 'geofis' && (
+        <div className="bg-background text-white">
+          <div className="mx-auto max-w-6xl flex">
+            <div className="my-auto">Geofisika</div>
+            <div className="ml-60 py-4">
+              <p>Geofisika1</p>
+              <p>Geofisika2</p>
+              <p>Geofisika3</p>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
